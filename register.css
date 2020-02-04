@@ -1,0 +1,55 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+html{
+    
+}
+
+body{
+
+    height: 500px;
+    margin: auto;
+    
+
+    
+}
+header{
+    text-align: center;
+
+}
+main{
+    margin: auto;
+    margin-top: 100px;
+    width: 500px;
+    height: 500px;
+    padding: 5px;
+    
+}
+#sign-in{
+    float: left;
+    width: 200px;
+    border: 1px solid;
+}
+#register{
+    display: inline-block;
+    width: 200px;
+    border: 1px solid;
+    
+}
+#profilePic{
+    border: 1px solid;
+}
+#photoInput{
+    height: 100px;
+    width: 100px;
+}
+#register form{
+    padding: 5px;
+
+}
+input{
+    margin: 5px;
+    padding: 2px;
+}
