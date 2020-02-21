@@ -4,8 +4,10 @@
 }
 
 html{
-    
+    background: #20242e;
+    color: cadetblue;
 }
+
 
 body{
 
@@ -17,39 +19,64 @@ body{
 }
 header{
     text-align: center;
+    padding: 20px;
+    font-size: 1.5rem;
 
 }
 main{
     margin: auto;
     margin-top: 100px;
     width: 500px;
-    height: 500px;
     padding: 5px;
-    
+    display: flex;
+    background: #20242e75;
 }
 #sign-in{
-    float: left;
-    width: 200px;
-    border: 1px solid;
+    margin: auto;
+    text-align: center;
+    font-size: 2rem;
+    flex: 1;
 }
+#sign-in a {
+    color: rgb(235, 248, 115); 
+}
+#sign-in a:hover{
+    color: cadetblue; 
+}
+
 #register{
-    display: inline-block;
-    width: 200px;
-    border: 1px solid;
-    
-}
-#profilePic{
-    border: 1px solid;
+    display: flex;
+    flex-direction: column;
+    border-left: 2px dashed;
+    flex: 1;
 }
 #photoInput{
     height: 100px;
     width: 100px;
+    background: cadetblue;
+    border: double 1px rgb(235, 248, 115);;
+    border-radius: 50%;
+    margin: auto;
 }
 #register form{
     padding: 5px;
-
+    margin: auto;
 }
 input{
+    color: rgb(235, 248, 115);
     margin: 5px;
     padding: 2px;
+    border: inset 2px #5c6888;
+    background: #5c6888;
+}
+.input{
+    font-size: 18px;
+    padding: 2px;
+    width: 100%;
+}
+.input:focus{
+    border: solid 2px rgb(235, 248, 115);
+}
+::placeholder{
+    color: #20242e;
 }
