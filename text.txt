@@ -1,0 +1,6 @@
+npm install
+express
+multer
+ejs
+path
+body-parser
