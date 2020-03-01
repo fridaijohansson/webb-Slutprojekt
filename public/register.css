@@ -68,11 +68,16 @@ input{
     padding: 2px;
     border: inset 2px #5c6888;
     background: #5c6888;
+    width: 100%;
+}
+.submit{
+    width: 50%;
+    
 }
 .input{
     font-size: 18px;
     padding: 2px;
-    width: 100%;
+    
 }
 .input:focus{
     border: solid 2px rgb(235, 248, 115);

@@ -1,6 +1,7 @@
-const express = require('express');
+/*const express = require('express');
 const fileUpload = require('express-fileupload');
 const bodyParser  = require('body-parser');
+const multer = require('multer');
 
 
 //initiera applikationen
@@ -51,4 +52,5 @@ app.post('/register', function(req, res) {
 
 
 
-app.listen(3500,()=>console.log("lyssnar på 3500"));
+
+app.listen(3500,()=>console.log("lyssnar på 3500")); */
