@@ -4,3 +4,16 @@ multer
 ejs
 path
 body-parser
+
+
+Att göra näst
+- ta in variabler via registreringen
+  - username, password, email, userID, profileIMG
+- middleware = authentication, authorisation, hash av lösen, 
+- ändra image name till userID
+
+- fixa sign in
+- koppla till databas
+- lägga upp bilder i molnet någonstans
+
+OSV...
