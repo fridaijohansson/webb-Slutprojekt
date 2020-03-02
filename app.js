@@ -3,6 +3,8 @@ const bodyParser  = require('body-parser');
 const multer = require('multer');
 const path = require('path');
 const ejs = require('ejs');
+const bcrypt = require("bcryptjs");
+const fs = require('fs');
 
 
 //set storage engine
@@ -56,25 +58,47 @@ app.get('/' ,function(req,res){
 
 // app.get('/', (req,res)=> res.render('index'));
 
-app.post('/register',function(req,res){
-    upload(req,res, (err) =>{
+app.post('/register', async function(req,res){
+    await upload(req,res, (err) =>{
         if(err){
             console.log(req.file);
             //rerender form
         } else{
-            console.log(req.file);
-            res.send('test');
+            
 
             if(req.file == undefined){
                 //Add standard profile image
             }else{
                 //rerender uploaded
+                console.log(req.file);
+                res.redirect('/');
             }
         }
     });
     // ta in alla variabler
 
     //username, password, email, userID, profileIMG
+    //
+    let input = {...req.body};
+    let hash = bcrypt.hashSync(req.body.password, 12);
+
+    const userID = 123;
+    let user = {input: req.body, userID };
+    res.send(user);
+
+    let data = JSON.stringify(user);
+    const users = JSON.parse( fs.readFileSync("./public/user.json"));
+    users.push(user);
+    
+    
+    fs.writeFile('./public/user.json', JSON.stringify(users), function (err) {
+    if (err) {
+        console.log('There has been an error saving your configuration data.');
+        console.log(err.message);
+        return;
+    }
+    console.log('Configuration saved successfully.')
+    });
 });
 
 app.listen(3600,()=> console.log('server started on port 3600'));
