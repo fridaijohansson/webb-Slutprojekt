@@ -79,27 +79,41 @@ app.post('/register', async function(req,res){
 
     //username, password, email, userID, profileIMG
     //
-    let input = {...req.body};
-    let hash = bcrypt.hashSync(req.body.password, 12);
+    let user = {...req.body};
+
+    // jämför password och confirm-pass
+
+
+    user.password = await bcrypt.hash(user.password,12);
+    // hämta random kod från funktion längst ned i filen
+    let code = randomCode();
+    // kryptera koden 
+    let hash = await bcrypt.hash(code,12);
 
     const userID = 123;
-    let user = {input: req.body, userID };
-    res.send(user);
+    
+    let input = {
+        user,
+        userID,
+        verified: false
+     };
+    res.send(input);
 
-    let data = JSON.stringify(user);
-    const users = JSON.parse( fs.readFileSync("./public/user.json"));
-    users.push(user);
+    //let data = JSON.stringify(input, null, 2);
+    let filedata = JSON.parse(fs.readFileSync('./public/user.json'));
+    filedata.push(input);
+    fs.writeFileSync('./public/user.json', JSON.stringify(filedata));
     
     
-    fs.writeFile('./public/user.json', JSON.stringify(users), function (err) {
-    if (err) {
-        console.log('There has been an error saving your configuration data.');
-        console.log(err.message);
-        return;
-    }
-    console.log('Configuration saved successfully.')
-    });
 });
 
 app.listen(3600,()=> console.log('server started on port 3600'));
 
+
+//hashnings kåd
+function randomCode(){
+    const crypto = require('crypto');
+    const code = crypto.randomBytes(6).toString("hex");
+    console.log(code);
+    return code;
+}
