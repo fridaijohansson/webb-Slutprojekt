@@ -25,15 +25,18 @@
                         <img src="" class="img-responsive" alt="">
                     </div>
                     <input name="img" type="file" value="Add Photo">
-                    <input type="submit" value="submit" class="submit" >
+                    
+                    <!-- <input type="submit" value="submit" class="submit" > -->
                 </div>
-            
                 <input class="input" type="text" name="name" placeholder="Username" required>
                 <input class="input" type="email" name="email" placeholder="Email" required>
                 <input class="input" id="pass1" type="password" name="password" placeholder="Password" required>
                 <input class="input" id="pass2" type="password" name="confirmPass" placeholder="Confirm Password" required>
-                <br>
+                
                 <input class="submit" type="submit" value="Register">
+                <br>
+                <span id="msg"></span>
+                
             </form>
         </div>
 
@@ -46,28 +49,23 @@
     function checkForm(e){
         // stoppar default händelsen
         e.preventDefault();
-        alert("form submit");
         //tittar ifall lösen är samma
         
-        const pass1 = getElementById('pass1');
-        const pass2 = getElementById('pass2');
+        const pass1 = document.getElementById('pass1');
+        const pass2 = document.getElementById('pass2');
 
-        if (pass1 == '') {
-            alert ("Please enter Password"); 
-        }
-        // If confirm password not entered 
-        else if (pass2 == '') {
-            alert ("Please enter confirm password");
-        }
-        else if (pass1 != pass2) { 
-            alert ("\nPassword did not match: Please try again...") 
+        // 
+        if (pass1.value != pass2.value) { 
+            document.getElementById("msg").innerHTML = "wrong password..."; 
         } 
+        else if(pass1.value.length <= 10) {
+            document.getElementById("msg").innerHTML = "Must be 10 char long..."; 
+        }
         else{ 
-            alert("Password Match!") 
+            this.submit();
         } 
 
         //if successful
-        this.submit();
     }
 
 
