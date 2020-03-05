@@ -117,3 +117,21 @@ function randomCode(){
     console.log(code);
     return code;
 }
+
+
+
+app.get('/login', function(req,res){
+    res.sendFile(__dirname + '/log-in.html');
+});
+
+app.post('/login', async function(req,res){
+    res.redirect('/first-page')
+});
+
+
+
+
+
+app.get('/first-page', function(req,res){
+    res.sendFile(__dirname + '/first-page.html');
+});
