@@ -4,6 +4,7 @@ multer
 ejs
 path
 body-parser
+bcryptjs
 
 
 Att göra näst
